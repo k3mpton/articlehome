@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+option go_package = "grpc-publish-home/pkg;publishhome"; 
+
+import "google/protobuf/timestamp.proto";
+
+service PublishHome {
+    rpc CreatePublish (CreateArticleRequest) returns (CreateArticleResponse);
+    rpc GetById (GetArticleByIDRequest) returns (GetArticleByIDResponse);
+    rpc GetIsTrendPublish (GetRandomArticleIsTrendRequest) returns (GetRandomArticleIsTrendResponse);
+}
+
+message ArticleData {
+    int64 Publish_id = 1; 
+    string NamePublish = 2; 
+    string Description = 3; 
+    float Rating = 4; 
+    google.protobuf.Timestamp created_at = 5;
+    google.protobuf.Timestamp updated_at = 6;
+}
+
+// Create 
+message CreateArticleRequest {
+    ArticleData ArticleReq = 1;
+}
+
+message CreateArticleResponse {
+    ArticleData ArticleResp = 1;
+}
+
+// Get 
+message GetArticleByIDRequest {
+    int64 ArticleId = 1; 
+}
+
+message GetArticleByIDResponse {
+    ArticleData Article = 1; 
+}
+
+// GetRandom 
+message GetRandomArticleIsTrendRequest {
+    int64 RandomArticleId = 1; 
+}
+
+message GetRandomArticleIsTrendResponse {
+    ArticleData Article = 1;  
+}

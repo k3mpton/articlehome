@@ -1,0 +1,7 @@
+{
+  "ArticleReq": {
+    "NamePublish": "Test Article",
+    "Description": "Test Description",
+    "Rating": 4.5
+  }
+}

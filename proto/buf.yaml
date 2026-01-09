@@ -1,0 +1,23 @@
+# buf.yaml
+version: v1  # ✅ Используем v1
+
+# В v1 используется 'name', а не 'module'
+name: buf.build/your-username/publish-home
+
+# В v1 зависимости без указания ветки
+deps:
+  - buf.build/googleapis/googleapis
+  # - buf.build/envoyproxy/envoy  # закомментируйте, если не нужно
+
+# Линтинг
+lint:
+  use:
+    - DEFAULT  # Или MINIMAL для начала
+  
+  except:
+    - PACKAGE_VERSION_SUFFIX  # Не требовать v1, v2 в именах пакетов
+
+# Проверка breaking changes
+breaking:
+  use:
+    - FILE

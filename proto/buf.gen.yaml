@@ -1,0 +1,14 @@
+version: v1
+
+plugins:
+  # ⭐ Для Go (основной язык из вашего go_package)
+  - name: go
+    out: gen/go  # ⭐ Папка для Go кода
+    opt: paths=source_relative
+  
+  # ⭐ Для gRPC Go (если нужны gRPC клиент/сервер)
+  - name: go-grpc
+    out: gen/go
+    opt: 
+      - paths=source_relative
+      - require_unimplemented_servers=false

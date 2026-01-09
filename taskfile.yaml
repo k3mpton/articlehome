@@ -1,0 +1,9 @@
+version: "3"
+
+tasks: 
+  generate: 
+    aliases: 
+      - gen 
+    desc: "task gen or generate"
+    cmds: 
+      - ghz --insecure --proto ./proto/newspaper.proto --call PublishHome.GetIsTrendPublish --total=500 --concurrency=20 --connections=20 --duration=10s --rps=1000 --timeout=10s localhost:8080
